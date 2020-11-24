@@ -45,6 +45,7 @@ export default class ModalWindows extends Component {
 
     state = {
         isOut: false,
+        timeOut: null
     }
 
     componentDidMount() {
@@ -55,6 +56,7 @@ export default class ModalWindows extends Component {
     componentWillUnmount() {
         document.body.style.overflow = "visible"
         window.removeEventListener('keydown', this.handlerEscape);
+        clearTimeout(this.state.timeOut);
     }
 
     handlerEscape = (e) => {
@@ -67,10 +69,13 @@ export default class ModalWindows extends Component {
         this.setState({
             isOut: true
         })
-        setTimeout(
+        const timeId = setTimeout(
             () => this.props.onCloseModal(),
             500
         );
+        this.setState({
+            timeOut: timeId
+        })
     }
 
     render() {
