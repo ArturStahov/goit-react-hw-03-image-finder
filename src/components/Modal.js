@@ -78,7 +78,7 @@ export default class ModalWindows extends Component {
 
     handlerEscape = (e) => {
         if (e.code === 'Escape') {
-            this.props.onCloseModal()
+            this.fadeoutModal()
         }
     }
 
