@@ -4,7 +4,7 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import styled, { keyframes } from "styled-components";
 import { rollIn, rollOut } from 'react-animations';
 
-const bounceAnimation = keyframes`${rollIn}`;
+const animIn = keyframes`${rollIn}`;
 const animOut = keyframes`${rollOut}`;
 
 const Image = styled.img`
@@ -22,14 +22,22 @@ position: fixed;
 top:0;
 left:0;
 height:100vh;
+width:100vw;
 background-color:rgba(0,0,0,0.7);
 `
 const ContentBlock = styled.div`
 position:relative;
- animation: 1s ${bounceAnimation};
+opacity:0;
+transition-property:opacity;
+transition-delay:0.3s;
+&.open{
+    opacity:1;
+ animation: 1s ${animIn};
+}
 
  &.close{
      animation: 0.6s ${animOut};
+     opacity:0;
  }
 `
 const ButtonClose = styled.button`
@@ -40,12 +48,21 @@ background-color:transparent;
 border:2px solid grey;
 border-radius:50%;
 cursor:pointer;
+opacity:0;
+transition-property:opacity;
+transition-delay:4s;
+&.open{
+opacity:1;
+}
+ &.close{   
+opacity:0;
+ }
 `
 export default class ModalWindows extends Component {
 
     state = {
-        isOut: false,
-        timeOut: null
+        isOut: null,
+        timeOut: null,
     }
 
     componentDidMount() {
@@ -78,15 +95,22 @@ export default class ModalWindows extends Component {
         })
     }
 
+    onLoadImage = () => {
+        this.setState({
+            isOut: false
+        })
+    }
+
     render() {
         const { imgUrl } = this.props
-        const styled = 'close'
+        const styledClose = 'close'
+        const styledOpen = 'open'
 
         return (
             <Modal>
-                <ContentBlock className={this.state.isOut && styled}>
-                    <ButtonClose type="button" onClick={() => { this.fadeoutModal() }}><FontAwesomeIcon icon={faTimesCircle} color="green" size='2x' /></ButtonClose>
-                    <Image src={imgUrl} />
+                <ContentBlock className={this.state.isOut ? styledClose : styledOpen}>
+                    <ButtonClose className={this.state.isOut ? styledClose : styledOpen} type="button" onClick={() => { this.fadeoutModal() }}><FontAwesomeIcon icon={faTimesCircle} color="green" size='2x' /></ButtonClose>
+                    <Image src={imgUrl} onLoad={this.onLoadImage} />
                 </ContentBlock>
             </Modal>
         )

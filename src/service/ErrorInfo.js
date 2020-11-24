@@ -5,8 +5,8 @@ import "@pnotify/confirm/dist/PNotifyConfirm.css"
 
 export default function ErrorInfo() {
     return info({
-        title: "No correct input",
-        text: "Please search any text!!",
+        title: "The input is not correct",
+        text: "Please input another request!!",
         delay: 3000
     })
 }

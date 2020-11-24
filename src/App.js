@@ -20,7 +20,7 @@ export default class App extends Component {
         loading: false,
         error: null,
         largeImgUrl: null,
-        isfullHits: false
+        isfullHits: false,
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -87,8 +87,11 @@ export default class App extends Component {
         })
     }
 
+
     closeModal = () => {
-        this.setState({ largeImgUrl: null })
+        this.setState({
+            largeImgUrl: null,
+        })
     }
 
     render() {
