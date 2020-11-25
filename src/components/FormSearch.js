@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const Form = styled.form`
 max-width:350px;
 margin:0 auto;
+margin-bottom:10px;
 `
 const Input = styled.input`
 width:100%;
@@ -14,10 +15,11 @@ padding-left: 10px;
 font-size:1rem;
 `
 
+
 export default class FormSearch extends Component {
 
     state = {
-        inputValue: ''
+        inputValue: '',
     }
 
     handleInput = e => {
@@ -28,8 +30,9 @@ export default class FormSearch extends Component {
 
     handlerForm = e => {
         e.preventDefault()
+        const { inputValue } = this.state;
 
-        this.props.onSearch(this.state.inputValue)
+        this.props.onSearch(inputValue)
         this.setState({
             inputValue: ''
         })
