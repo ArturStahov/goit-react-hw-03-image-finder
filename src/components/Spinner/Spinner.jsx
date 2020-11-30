@@ -1,13 +1,8 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import styled from 'styled-components';
+import { SpinnerBlock } from './StyledComponent';
 
-const SpinnerBlock = styled.div`
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-`;
 export default function Spinner() {
   return (
     <SpinnerBlock>

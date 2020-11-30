@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const Button = styled.button`
   display: block;
@@ -16,14 +14,4 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export default function ButtonLoadMore({ onLoad }) {
-  return (
-    <Button type="button" onClick={() => onLoad()}>
-      LoadMore
-    </Button>
-  );
-}
-
-ButtonLoadMore.propTypes = {
-  onLoad: PropTypes.func.isRequired,
-};
+export { Button };

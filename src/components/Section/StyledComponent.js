@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const SectionContent = styled.section`
@@ -7,6 +6,4 @@ const SectionContent = styled.section`
   margin: 0 auto;
 `;
 
-export default function Section({ children }) {
-  return <SectionContent>{children}</SectionContent>;
-}
+export { SectionContent };

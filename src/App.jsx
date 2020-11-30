@@ -1,16 +1,16 @@
 import React, { Component, Fragment } from 'react';
-import PageHeader from './components/HeaderPage';
-import FormSearch from './components/FormSearch';
-import Section from './components/Section';
-import ImageListRender from './components/ImagesListRender';
+import PageHeader from './components/HeaderPage/HeaderPage';
+import FormSearch from './components/FormSearch/FormSearch';
+import Section from './components/Section/Section';
+import ImageListRender from './components/ImagesListRender/ImagesListRender';
 import ServiceApi from './service/ServiceApi';
-import Spinner from './components/Spinner';
-import Notification from './components/Notification';
+import Spinner from './components/Spinner/Spinner';
+import Notification from './components/Notification/Notification';
 import ErrorInfo from './service/ErrorInfo';
-import Modal from './components/Modal';
-import ButtonLoadMore from './components/ButtonLoadMore';
-import LoadInfinityControl from './components/LoadInfinityControl';
-import ButtonScrollTop from './components/ButtonScrollTop';
+import Modal from './components/Modal/Modal';
+import ButtonLoadMore from './components/ButtonLoadMore/ButtonLoadMore';
+import LoadInfinityControl from './components/LoadInfinityControl/LoadInfinityControl';
+import ButtonScrollTop from './components/ButtonScrollTop/ButtonScrollTop';
 
 export default class App extends Component {
   state = {
